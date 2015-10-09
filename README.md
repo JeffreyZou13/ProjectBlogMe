@@ -6,9 +6,9 @@ Project Description
 
 Team Members
 ------------
-**Leader:** Ariel Levy 
-**UX:** Bi Ling Wu
-**Backend:** Jeffrey Zou
+**Leader:** Ariel Levy  
+**UX:** Bi Ling Wu  
+**Backend:** Jeffrey Zou    
 
 Instructions
 ------------
