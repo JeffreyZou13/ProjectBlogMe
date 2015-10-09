@@ -1,6 +1,5 @@
 # ProjectBlogMe
-Majestic Platypi
-================
+*Majestic Platypi*
 
 Project Description
 ------------------- 
