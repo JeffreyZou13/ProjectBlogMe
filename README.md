@@ -15,6 +15,7 @@ Instructions
 
 Timeline
 --------
+**10/09/15:** Project Start  
 
 Additional Information
 ----------------------
