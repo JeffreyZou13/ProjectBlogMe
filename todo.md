@@ -1,5 +1,7 @@
 #ToDo
 
+_ideas for extra stuff we can do is in italics_
+
 ###UX
 - [ ] home page (home.html)
 	- [ ] blog title
@@ -15,26 +17,31 @@
 	- [ ] takes username as argument
 	- [ ] displays list of blog posts by user
 	- [ ] link to logout
+	- [ ] link to create new post
 - [ ] blog post page
 	- [ ] takes post id # as argument
 	- [ ] displays post and post comments
 	- [ ] button to add comment on post
 	- [ ] _button to edit post_ 
+- [ ] create new post page
+	- [ ] space to enter post title and text 
 
 ###Backend
-- [ ] database of users
+- [ ] csv database of users (users.csv -> users.db)
 	- [ ] column for username
 	- [ ] column for password
 	- [ ] _column for retrieval email_
-- [ ] database of blog posts
+- [ ] csv database of blog posts (posts.csv -> posts.db)
 	- [ ] column for post id #
 	- [ ] column for user who created post
 	- [ ] _column for date created_
 	- [ ] _column for time created_
 	- [ ] column for post text
-- [ ] database of blog post comments
+- [ ] csv database of blog post comments (comments.csv -> commments.db)
 	- [ ] column for post id #
 	- [ ] column for user who commented
 	- [ ] _column for date created_
 	- [ ] _column for time created_
 	- [ ] column for comment text
+- [ ] python script to populate sql databases from csv files (create.py)
+
