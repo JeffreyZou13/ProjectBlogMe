@@ -27,9 +27,9 @@ _ideas for extra stuff we can do is in italics_
 	- [ ] space to enter post title and text 
 
 ###Backend
-- [AL] csv database of users (users.csv -> users.db)
-	- [ ] column for username
-	- [ ] column for password
+- [X] csv database of users (users.csv -> users.db) **[AL]**
+	- [X] column for username
+	- [X] column for password
 	- [ ] _column for retrieval email_
 - [ ] csv database of blog posts (posts.csv -> posts.db)
 	- [ ] column for post id #
