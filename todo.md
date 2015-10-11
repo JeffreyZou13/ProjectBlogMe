@@ -27,7 +27,7 @@ _ideas for extra stuff we can do is in italics_
 	- [ ] space to enter post title and text 
 
 ###Backend
-- [ ] csv database of users (users.csv -> users.db)
+- [AL] csv database of users (users.csv -> users.db)
 	- [ ] column for username
 	- [ ] column for password
 	- [ ] _column for retrieval email_
@@ -45,3 +45,7 @@ _ideas for extra stuff we can do is in italics_
 	- [ ] column for comment text
 - [ ] python script to populate sql databases from csv files (create.py)
 
+###Middleware
+- [ ] authenticate username and password from users database
+- [ ] extract list of posts by user for profile page
+- [ ] extract list of comments for post page
