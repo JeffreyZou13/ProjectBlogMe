@@ -1,6 +1,7 @@
 from flask import Flask, render_template,request, session,redirect, url_for
 import sqlite3
 import csv
+import utils
 
 app= Flask(__name__)
 loggedin= False
@@ -20,7 +21,7 @@ def login():
     else:
         uname=request.form['username']
         pword = request.form['password']
-        if uname=="this" and pword=="that":
+        if utils.authenticate(uname,pword):
             loggedin= True
             return redirect(url_for('profile'))
         else:

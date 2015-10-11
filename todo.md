@@ -43,7 +43,8 @@ _ideas for extra stuff we can do is in italics_
 	- [ ] _column for date created_
 	- [ ] _column for time created_
 	- [ ] column for comment text
-- [ ] python script to populate sql databases from csv files (create.py)
+- [ ] python script to create sql databases (create.py)
+- [ ] python script to populate sql databases from csv files (populate.py)
 
 ###Middleware
 - [ ] authenticate username and password from users database
