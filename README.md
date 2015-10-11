@@ -16,9 +16,9 @@ Instructions
 Timeline
 --------
 **10/09/15:** Project Start  
-**10/15/15:** Basic Requirements
-**10/16/15:** Debugging
-**10/19/15:** Project Finish
+**10/15/15:** Basic Requirements  
+**10/16/15:** Debugging  
+**10/19/15:** Project Finish  
 
 Additional Information
 ----------------------
