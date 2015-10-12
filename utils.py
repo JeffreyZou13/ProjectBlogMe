@@ -15,3 +15,29 @@ def authenticate(uname, pword):
 		return True
 	else:
 		return False
+
+def posts(uname):
+	conn = sqlite3.connect("blog.db")
+	c = conn.cursor()
+	q = '''
+	SELECT *
+	FROM posts
+	WHERE username="'''+uname+'"'
+	result = c.execute(q)
+	posts = []
+	for r in result:
+		posts += [r[0]]
+	return posts
+
+def comments(post_id):
+	conn = sqlite3.connect("blog.db")
+	c = conn.cursor()
+	q = '''
+	SELECT *
+	FROM comments
+	WHERE username="'''+uname+'"'
+	result = c.execute(q)
+	comments = []
+	for r in result:
+		comments += [r[0]]
+	return comments

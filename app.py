@@ -21,16 +21,23 @@ def login():
     else:
         uname=request.form['username']
         pword = request.form['password']
-        if utils.authenticate(uname,pword):
+        if utils.authenticate(uname,pword): # checks if pword matches uname in database
             loggedin= True
             return redirect(url_for('profile'))
         else:
             return(render_template("login.html") + uname + "<br>" +pword)
             #print (uname + password)
 
+@app.route("/logout") # redirects to login page
+def logout():
+	return redirect(url_for("login"))
+
 @app.route("/profile")
 def profile():
-    return "shhs"
+	if loggedin:
+		return(render_template("profile.html"))
+	else:
+		return redirect(url_for("login"))
     
 if __name__ == "__main__":
     app.debug=True
