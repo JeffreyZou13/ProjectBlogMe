@@ -9,7 +9,8 @@ _ideas for extra stuff we can do is in italics_
 	- [ ] link to login
 - [ ] login page (login.html)
 	- [ ] space to enter username and password
-	- [ ] authenticate info from database of users
+	- [X] authenticate info from database of users **[AL]**
+	- [ ] error message
 	- [ ] link back to home page
 	- [ ] _link to forgot password sends to email on file_
 - [ ] _create user page_  
@@ -47,6 +48,6 @@ _ideas for extra stuff we can do is in italics_
 - [ ] python script to populate sql databases from csv files (populate.py)
 
 ###Middleware
-- [ ] authenticate username and password from users database
+- [X] authenticate username and password from users database **[AL]**
 - [ ] extract list of posts by user for profile page
 - [ ] extract list of comments for post page

@@ -1,16 +1,17 @@
 import csv
 import sqlite3
 
-conn = sqlite3.connect("blog.db")
-c = conn.cursor()
-
 def authenticate(uname, pword):
+	conn = sqlite3.connect("blog.db")
+	c = conn.cursor()
 	q = '''
-	SELECT users.password
+	SELECT password
 	FROM users
-	WHERE users.username='''+uname
+	WHERE username="'''+uname+'"'
 	result = c.execute(q)
-	if result == pword:
+	for r in result:
+		p = r[0]
+	if p == pword:
 		return True
 	else:
 		return False
