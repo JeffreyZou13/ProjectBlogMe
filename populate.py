@@ -12,5 +12,22 @@ for item in csv.DictReader(open("users.csv")):
     print q
     c.execute(q)
 
+q = "delete from posts"
+c.execute(q)
+BASE="INSERT INTO posts VALUES('%(id)s','%(user)s','%(title)s','%(post)s')"
+for item in csv.DictReader(open("posts.csv")):
+    q = BASE%item
+    print q
+    c.execute(q)
+
+q = "delete from comments"
+c.execute(q)
+BASE="INSERT INTO comments VALUES('%(id)s','%(user)s','%(comment)s')"
+for item in csv.DictReader(open("comments.csv")):
+    q = BASE%item
+    print q
+    c.execute(q)
+
+
 conn.commit()
         

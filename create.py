@@ -11,6 +11,7 @@ q = "CREATE TABLE posts(id int, username text, title text, post text)"
 c.execute(q)
 
 q = "CREATE TABLE comments(id int, username text, comment text)"
+c.execute(q)
 
 conn.commit()
 
