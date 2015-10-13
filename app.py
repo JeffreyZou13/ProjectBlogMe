@@ -34,9 +34,14 @@ def logout():
 
 @app.route("/profile")
 @app.route("/profile/<username>")
-def profile(username):
-	return(render_template("profile.html",username=uname))
+def profile(username="Default"):
+	return(render_template("profile.html",username=username))
     
+@app.route("/post")
+@app.route("/post/<post_id>")
+def post(post_id=1):
+	return(render_template("post.html",post_id=post_id))
+
 if __name__ == "__main__":
     app.debug=True
     app.run(host="0.0.0.0",port=5000)

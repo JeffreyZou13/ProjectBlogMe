@@ -26,8 +26,10 @@ def posts(uname):
 	result = c.execute(q)
 	posts = []
 	for r in result:
-		posts += [r[0]]
+		posts += [[r[0],r[2]]]
 	return posts
+
+#print posts("alevy")
 
 def comments(post_id):
 	conn = sqlite3.connect("blog.db")
@@ -35,9 +37,11 @@ def comments(post_id):
 	q = '''
 	SELECT *
 	FROM comments
-	WHERE username="'''+uname+'"'
+	WHERE id="'''+str(post_id)+'"'
 	result = c.execute(q)
 	comments = []
 	for r in result:
-		comments += [r[0]]
+		comments += [[r[1],r[2]]]
 	return comments
+
+#print comments(1)
