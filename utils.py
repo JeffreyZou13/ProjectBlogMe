@@ -30,7 +30,20 @@ def posts(uname):
 		posts += [[h,r[2]]]
 	return posts
 
-#print posts("alevy")
+def post_info(post_id):
+	conn = sqlite3.connect("blog.db")
+	c = conn.cursor()
+	q = '''
+	SELECT * 
+	FROM posts
+	WHERE id='''+post_id
+	result = c.execute(q)
+	d = {}
+	for r in result:
+		d['user'] = r[1]
+		d['title'] = r[2]
+		d['post'] = r[3]
+	return d
 
 def comments(post_id):
 	conn = sqlite3.connect("blog.db")

@@ -41,7 +41,8 @@ def profile(username="Default"):
 @app.route("/post")
 @app.route("/post/<post_id>")
 def post(post_id=1):
-	return(render_template("post.html",post_id=post_id))
+	d = utils.post_info(post_id)
+	return(render_template("post.html",d=d))
 
 if __name__ == "__main__":
     app.debug=True
