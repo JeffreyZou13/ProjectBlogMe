@@ -1,1 +1,7 @@
+<!DOCTYPE html>
+
 <h1>{{username}}</h1>
+
+{% for p in post_list %}
+<h2><a href={{p[0]}}>{{p[1]}}</a></h2>
+{% endfor %}
