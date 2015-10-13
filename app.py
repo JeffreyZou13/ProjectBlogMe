@@ -4,7 +4,7 @@ import csv
 import utils
 
 app= Flask(__name__)
-loggedin= False
+#loggedin= False
 
 @app.route("/")
 def default():
@@ -22,10 +22,10 @@ def login():
         uname=request.form['username']
         pword = request.form['password']
         if utils.authenticate(uname,pword): # checks if pword matches uname in database
-            loggedin= True
-            return redirect(url_for('profile/'+uname))
+            #loggedin= True
+            return redirect(url_for('profile', username=uname))
         else:
-            return(render_template("login.html") + uname + "<br>" +pword)
+            return(render_template("login.html") +uname+ "<br>" +pword)
     		# return login.html with error message
 
 @app.route("/logout") # redirects to login page
@@ -34,9 +34,9 @@ def logout():
 
 @app.route("/profile")
 @app.route("/profile/<username>")
-def profile(username="Default"):
-	return(render_template("profile.html",uname=username))
+def profile(username):
+	return(render_template("profile.html",username=uname))
     
 if __name__ == "__main__":
     app.debug=True
-    app.run(host="0.0.0.0",port=8000)
+    app.run(host="0.0.0.0",port=5000)
