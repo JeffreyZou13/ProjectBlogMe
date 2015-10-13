@@ -26,7 +26,8 @@ def posts(uname):
 	result = c.execute(q)
 	posts = []
 	for r in result:
-		posts += [[r[0],r[2]]]
+		h = "http://localhost:5000/post/"+str(r[0])
+		posts += [[h,r[2]]]
 	return posts
 
 #print posts("alevy")

@@ -15,13 +15,13 @@ _ideas for extra stuff we can do is in italics_
 	- [ ] _link to create user_
 	- [ ] _link to forgot password sends to email on file_
 - [ ] _create user page_  
-- [ ] user profile page 
-	- [ ] takes username as argument
+- [ ] user profile page (profile.html) 
+	- [X] takes username as argument **[AL]**
 	- [ ] displays list of blog posts by user
 	- [ ] link to logout
 	- [ ] link to create new post
-- [ ] blog post page
-	- [ ] takes post id # as argument
+- [ ] blog post page (post.html)
+	- [X] takes post id # as argument **[AL]**
 	- [ ] displays post and post comments
 	- [ ] button to add comment on post
 	- [ ] _button to edit post_ 

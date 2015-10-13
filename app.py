@@ -35,7 +35,8 @@ def logout():
 @app.route("/profile")
 @app.route("/profile/<username>")
 def profile(username="Default"):
-	return(render_template("profile.html",username=username))
+	post_list = utils.posts(username)
+	return(render_template("profile.html",username=username,post_list=post_list))
     
 @app.route("/post")
 @app.route("/post/<post_id>")
