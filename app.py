@@ -40,10 +40,14 @@ def profile(username="Default"):
     
 @app.route("/post")
 @app.route("/post/<post_id>")
-def post(post_id=1):
+def post(post_id="1"):
 	d = utils.post_info(post_id)
 	comment_list = utils.comments(post_id)
 	return(render_template("post.html",d=d,comment_list=comment_list))
+
+@app.route("/newpost")
+def newpost():
+	return(render_template("newpost.html"))
 
 if __name__ == "__main__":
     app.debug=True

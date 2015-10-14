@@ -23,11 +23,11 @@ _ideas for extra stuff we can do is in italics_
 - [ ] blog post page (post.html)
 	- [X] takes post id # as argument **[AL]**
 	- [X] displays post and post comments **[AL]**
-	- [ ] button to add comment on post
+	- [ ] button to add comment on post **[AL]**
 	- [ ] add comment to database
 	- [ ] _button to edit post_ 
-- [ ] create new post page
-	- [ ] space to enter post title and text 
+- [ ] create new post page (newpost.html)
+	- [X] space to enter post title and text **[AL]** 
 	- [ ] add post to database
 - [ ] fancy formatting - Bootstrap?
 	- [ ] nav bar?
