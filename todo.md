@@ -20,7 +20,6 @@ _ideas for extra stuff we can do is in italics_
 	- [X] displays list of blog posts by user **[AL]**
 	- [ ] link to logout
 	- [ ] link to create new post
-	- [ ] add post to database
 - [ ] blog post page (post.html)
 	- [X] takes post id # as argument **[AL]**
 	- [X] displays post and post comments **[AL]**
@@ -29,6 +28,7 @@ _ideas for extra stuff we can do is in italics_
 	- [ ] _button to edit post_ 
 - [ ] create new post page
 	- [ ] space to enter post title and text 
+	- [ ] add post to database
 - [ ] fancy formatting - Bootstrap?
 	- [ ] nav bar?
 
