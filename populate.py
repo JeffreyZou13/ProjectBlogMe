@@ -6,27 +6,27 @@ c = conn.cursor()
 
 q = "delete from users"
 c.execute(q)
-BASE="INSERT INTO users VALUES(%s,%s)"
+BASE="INSERT INTO users VALUES('%(username)s','%(password)s')"
 for item in csv.DictReader(open("users.csv")):
     q = BASE%item
     print q
-    c.execute(q, (username, password))
+    c.execute(q)
 
 q = "delete from posts"
 c.execute(q)
-BASE="INSERT INTO posts VALUES(%s,%s,%s,%s)"
+BASE="INSERT INTO posts VALUES('%(id)s','%(user)s','%(title)s','%(post)s')"
 for item in csv.DictReader(open("posts.csv")):
     q = BASE%item
     print q
-    c.execute(q, (id, user, title, post))
+    c.execute(q)
 
 q = "delete from comments"
 c.execute(q)
-BASE="INSERT INTO comments VALUES(%s,%s,%s)"
+BASE="INSERT INTO comments VALUES('%(id)s','%(user)s','%(comment)s')"
 for item in csv.DictReader(open("comments.csv")):
     q = BASE%item
     print q
-    c.execute(q, (id, user, comment))
+    c.execute(q)
 
 
 conn.commit()
