@@ -38,16 +38,26 @@ def profile(username="Default"):
 	post_list = utils.posts(username)
 	return(render_template("profile.html",username=username,post_list=post_list))
     
-@app.route("/post")
-@app.route("/post/<post_id>")
+@app.route("/post", methods=["GET","POST"])
+@app.route("/post/<post_id>", methods=["GET","POST"])
 def post(post_id="1"):
+	if request.method == "POST":
+		comment = request.form['comment']
+		print comment
+		# add comment to database
 	d = utils.post_info(post_id)
 	comment_list = utils.comments(post_id)
 	return(render_template("post.html",d=d,comment_list=comment_list))
 
-@app.route("/newpost")
+@app.route("/newpost", methods=["GET","POST"])
 def newpost():
-	return(render_template("newpost.html"))
+	if request.method == "GET":
+		return(render_template("newpost.html"))
+	else:
+		title = request.form['title']
+		post = request.form['post']
+		# add post to database
+		return redirect(url_for("post",post_id=1)) # redirect to new post
 
 if __name__ == "__main__":
     app.debug=True

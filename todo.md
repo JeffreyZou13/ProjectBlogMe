@@ -59,4 +59,6 @@ _ideas for extra stuff we can do is in italics_
 - [X] authenticate username and password from users database **[AL]**
 - [X] extract list of posts by user for profile page **[AL]**
 - [X] extract list of comments for post page **[AL]**
-
+- [ ] remember logged in user with session
+- [ ] add post to database
+- [ ] add comment to database
