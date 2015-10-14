@@ -27,7 +27,7 @@ def posts(uname):
 	posts = []
 	for r in result:
 		h = "http://localhost:5000/post/"+str(r[0])
-		posts += [[h,r[2]]]
+		posts += [{'id':h,'title':r[2]}]
 	return posts
 
 def post_info(post_id):
@@ -55,7 +55,7 @@ def comments(post_id):
 	result = c.execute(q)
 	comments = []
 	for r in result:
-		comments += [[r[1],r[2]]]
+		comments += [{'user':r[1],'comment':r[2]}]
 	return comments
 
 #print comments(1)

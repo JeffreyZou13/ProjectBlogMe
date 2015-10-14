@@ -42,7 +42,8 @@ def profile(username="Default"):
 @app.route("/post/<post_id>")
 def post(post_id=1):
 	d = utils.post_info(post_id)
-	return(render_template("post.html",d=d))
+	comment_list = utils.comments(post_id)
+	return(render_template("post.html",d=d,comment_list=comment_list))
 
 if __name__ == "__main__":
     app.debug=True

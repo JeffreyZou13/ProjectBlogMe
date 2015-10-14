@@ -6,9 +6,9 @@ _ideas for extra stuff we can do is in italics_
 - [ ] home page (home.html)
 	- [ ] blog title
 	- [ ] short description
-	- [ ] link to login
+	- [X] link to login **[BW]**
 - [ ] login page (login.html)
-	- [ ] space to enter username and password
+	- [X] space to enter username and password **[BW]**
 	- [X] authenticate info from database of users **[AL]**
 	- [ ] error message
 	- [ ] link back to home page
@@ -17,12 +17,12 @@ _ideas for extra stuff we can do is in italics_
 - [ ] _create user page_  
 - [ ] user profile page (profile.html) 
 	- [X] takes username as argument **[AL]**
-	- [ ] displays list of blog posts by user
+	- [X] displays list of blog posts by user **[AL]**
 	- [ ] link to logout
 	- [ ] link to create new post
 - [ ] blog post page (post.html)
 	- [X] takes post id # as argument **[AL]**
-	- [ ] displays post and post comments
+	- [X] displays post and post comments **[AL]**
 	- [ ] button to add comment on post
 	- [ ] _button to edit post_ 
 - [ ] create new post page
@@ -35,21 +35,21 @@ _ideas for extra stuff we can do is in italics_
 	- [X] column for username (username text)
 	- [X] column for password (password text)
 	- [ ] _column for retrieval email_
-- [ ] csv database of blog posts (posts.csv -> posts.db)
-	- [ ] column for post id # (id int)
-	- [ ] column for user who created post (user text)
-	- [ ] column for post title (title text)
-	- [ ] column for post text (post text)
+- [X] csv database of blog posts (posts.csv -> posts.db) **[JZ]**
+	- [X] column for post id # (id int)
+	- [X] column for user who created post (user text)
+	- [X] column for post title (title text)
+	- [X] column for post text (post text)
 	- [ ] _column for date created_
 	- [ ] _column for time created_
-- [ ] csv database of blog post comments (comments.csv -> commments.db)
-	- [ ] column for post id # (id int)
-	- [ ] column for user who commented (user text)
-	- [ ] column for comment text (comment text)
+- [X] csv database of blog post comments (comments.csv -> commments.db) **[JZ]**
+	- [X] column for post id # (id int)
+	- [X] column for user who commented (user text)
+	- [X] column for comment text (comment text)
 	- [ ] _column for date created_
 	- [ ] _column for time created_
-- [ ] python script to create sql databases (create.py)
-- [ ] python script to populate sql databases from csv files (populate.py)
+- [X] python script to create sql databases (create.py) **[JZ],[AL]**
+- [X] python script to populate sql databases from csv files (populate.py) **[AL]**
 
 ###Middleware
 
