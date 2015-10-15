@@ -25,7 +25,13 @@ def login(message=''):
 	    session['user'] = uname # set current user 
             return redirect(url_for('profile', username=uname))
         else:
-            return(render_template("login.html",message="Incorrect username or password.") +uname+ "<br>" +pword)
+            return(render_template("login.html",message="Incorrect username or password."))
+ 
+@app.route("/register", methods=["GET","POST"])
+def register():
+	if request.method == "GET":
+		return(render_template("register.html"))
+	#form input for post
 
 @app.route("/logout") # redirects to login page
 def logout():
