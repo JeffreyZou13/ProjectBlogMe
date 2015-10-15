@@ -58,3 +58,27 @@ def comments(post_id):
 		comments += [{'user':r[1],'comment':r[2]}]
 	return comments
 
+def add_post(user,title,post):
+	conn = sqlite3.connect("blog.db")
+	c = conn.cursor()
+	q = 'SELECT COUNT(*) FROM posts'
+	result = c.execute(q) # number of posts
+	for r in result:
+		pid = r[0]+1
+	q = 'INSERT INTO posts VALUES("'+'","'.join([str(pid),user,title,post])+'")'
+	print q
+	c.execute(q)
+	'''
+	c.execute(".mode csv")
+	c.execute(".output posts.csv")
+	c.execute("SELECT * FROM posts")
+	c.execute(".output stdout")
+	'''
+	conn.commit()
+
+def add_comment(pid,user,comment):
+	conn = sqlite3.connect("blog.db")
+	c = conn.cursor()
+	q = 'INSERT INTO comments VALUES("'+'","'.join([pid,user,comment])+'")'
+	c.execute(q)
+	conn.commit()

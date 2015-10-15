@@ -4,7 +4,6 @@ import csv
 import utils
 
 app= Flask(__name__)
-#loggedin= False
 
 @app.route("/")
 def default():
@@ -23,12 +22,10 @@ def login(message=''):
         uname=request.form['username']
         pword = request.form['password']
         if utils.authenticate(uname,pword): # checks if pword matches uname in database
-            #loggedin= True
 	    session['user'] = uname # set current user 
             return redirect(url_for('profile', username=uname))
         else:
             return(render_template("login.html",message="Incorrect username or password.") +uname+ "<br>" +pword)
-    		# return login.html with error message
 
 @app.route("/logout") # redirects to login page
 def logout():
@@ -47,8 +44,8 @@ def post(post_id="1"):
 	if request.method == "POST":
 		if 'user' in session and session['user'] != '':
 			comment = request.form['comment']
-			print comment
 			# add comment to database
+			utils.add_comment(post_id,session['user'],comment)
 		else:
 			return redirect(url_for("login",message="Login before you post."))
 	d = utils.post_info(post_id)
@@ -66,6 +63,7 @@ def newpost():
 		title = request.form['title']
 		post = request.form['post']
 		# add post to database
+		utils.add_post(session['user'],title,post)
 		return redirect(url_for("post",post_id=1)) # redirect to new post
 
 if __name__ == "__main__":
