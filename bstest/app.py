@@ -1,4 +1,4 @@
-from flask import Flask, render_templates, redirect, url_for
+from flask import Flask, render_template, redirect, url_for
 
 app= Flask(__name__)
 
@@ -13,4 +13,4 @@ def home():
 
 if __name__ == "__main__":
     app.debug=True
-    app.run(host="0.0.0.0",port=5000)
+    app.run(host="0.0.0.0",port=8000)
