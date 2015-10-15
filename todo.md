@@ -10,7 +10,7 @@ _ideas for extra stuff we can do is in italics_
 - [ ] login page (login.html)
 	- [X] space to enter username and password **[BW]**
 	- [X] authenticate info from database of users **[AL]**
-	- [ ] error message
+	- [X] error message **[AL]**
 	- [ ] link back to home page
 	- [ ] _link to create user_
 	- [ ] _link to forgot password sends to email on file_
@@ -23,7 +23,7 @@ _ideas for extra stuff we can do is in italics_
 - [ ] blog post page (post.html)
 	- [X] takes post id # as argument **[AL]**
 	- [X] displays post and post comments **[AL]**
-	- [ ] button to add comment on post **[AL]**
+	- [X] button to add comment on post **[AL]**
 	- [ ] add comment to database
 	- [ ] _button to edit post_ 
 - [ ] create new post page (newpost.html)
@@ -52,13 +52,13 @@ _ideas for extra stuff we can do is in italics_
 	- [ ] _column for time created_
 - [X] python script to create sql databases (create.py) **[JZ],[AL]**
 - [X] python script to populate sql databases from csv files (populate.py) **[AL]**
-- [ ] secure databases
+- [X] secure databases **[JZ]**
 
 ###Middleware
 
 - [X] authenticate username and password from users database **[AL]**
 - [X] extract list of posts by user for profile page **[AL]**
 - [X] extract list of comments for post page **[AL]**
-- [ ] remember logged in user with session
+- [X] remember logged in user with session **[AL]**
 - [ ] add post to database
 - [ ] add comment to database

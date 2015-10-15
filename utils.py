@@ -58,4 +58,3 @@ def comments(post_id):
 		comments += [{'user':r[1],'comment':r[2]}]
 	return comments
 
-#print comments(1)
