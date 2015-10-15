@@ -7,8 +7,8 @@ def authenticate(uname, pword):
 	q = '''
 	SELECT password
 	FROM users
-	WHERE username="'''+uname+'"'
-	result = c.execute(q)
+	WHERE username=?'''
+	result = c.execute(q, (uname,))
 	for r in result:
 		p = r[0]
 	if p == pword:
@@ -22,8 +22,8 @@ def posts(uname):
 	q = '''
 	SELECT *
 	FROM posts
-	WHERE username="'''+uname+'"'
-	result = c.execute(q)
+	WHERE username=?'''
+	result = c.execute(q, (uname,))
 	posts = []
 	for r in result:
 		h = "http://localhost:5000/post/"+str(r[0])
@@ -36,8 +36,8 @@ def post_info(post_id):
 	q = '''
 	SELECT * 
 	FROM posts
-	WHERE id='''+post_id
-	result = c.execute(q)
+	WHERE id=?'''
+	result = c.execute(q,(post_id,))
 	d = {}
 	for r in result:
 		d['user'] = r[1]
@@ -51,8 +51,8 @@ def comments(post_id):
 	q = '''
 	SELECT *
 	FROM comments
-	WHERE id="'''+str(post_id)+'"'
-	result = c.execute(q)
+	WHERE id=?'''
+	result = c.execute(q, (str(post_id),))
 	comments = []
 	for r in result:
 		comments += [{'user':r[1],'comment':r[2]}]
