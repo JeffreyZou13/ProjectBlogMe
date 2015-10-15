@@ -48,7 +48,18 @@ def post(post_id="1"):
 	d = utils.post_info(post_id)
 	comment_list = utils.comments(post_id)
 	return(render_template("post.html",d=d,comment_list=comment_list))
-
+'''
+@app.route("/posts", methods=["GET","POST"])
+def delete(post_id="None"):
+    #username and password of the current user
+    uname = request.form['username']
+    pword = request.form['password']
+    #I want to compare to see if the user is the same as the poster
+    if check_name(post_id) == uname:
+        d = utils.delete_post(post_id)
+        comment_list = utils.comments(post_id)
+        return render_template("post.html", d=d, comment_list = comment_list))
+'''
 @app.route("/newpost", methods=["GET","POST"])
 def newpost():
 	if request.method == "GET":
