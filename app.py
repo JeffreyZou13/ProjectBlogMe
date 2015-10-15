@@ -21,7 +21,9 @@ def login(message=''):
     else:
         uname=request.form['username']
         pword = request.form['password']
-        if utils.authenticate(uname,pword): # checks if pword matches uname in database
+	if not utils.user_exists(uname):
+		return(render_template("login.html",message="User does not exist."))
+        elif utils.authenticate(uname,pword): # checks if pword matches uname in database
 	    session['user'] = uname # set current user 
             return redirect(url_for('profile', username=uname))
         else:
@@ -43,6 +45,7 @@ def register():
 		elif pword != conf:
 			return(render_template("register.html",message="Password doesn't match confirmation."))
 		else:
+			utils.add_user(uname,pword)
 			return redirect(url_for('login'))
 	#form input for post
 
