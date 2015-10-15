@@ -28,9 +28,22 @@ def login(message=''):
             return(render_template("login.html",message="Incorrect username or password."))
  
 @app.route("/register", methods=["GET","POST"])
+@app.route("/register/<message>", methods=["GET","POST"])
 def register():
 	if request.method == "GET":
 		return(render_template("register.html"))
+	else:
+		uname = request.form['username']
+		pword = request.form['password']
+		conf = request.form['confirm']
+		if utils.user_exists(uname):
+			return(render_template("register.html",message="Username already exists."))
+		elif len(pword) < 6:
+			return(render_template("register.html",message="Password should be at least 6 characters."))
+		elif pword != conf:
+			return(render_template("register.html",message="Password doesn't match confirmation."))
+		else:
+			return redirect(url_for('login'))
 	#form input for post
 
 @app.route("/logout") # redirects to login page

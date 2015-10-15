@@ -58,6 +58,27 @@ def comments(post_id):
 		comments += [{'user':r[1],'comment':r[2]}]
 	return comments
 
+def user_exists(name):
+	conn = sqlite3.connect("blog.db")
+	c = conn.cursor()
+	q = 'SELECT * FROM users WHERE username="'+name+'"'
+	result = c.execute(q)
+	num = 0
+	for r in result:
+		num = num + 1
+	if num != 0:
+		return True
+	else:
+		return False
+
+def add_user(name,password):
+	conn = sqlite3.connect("blog.db")
+	c = conn.cursor()
+	q = 'INSERT INTO users VALUES("'+'","'.join([name,password])+'")'
+	print q
+	c.execute(q)
+	conn.commit()
+
 def add_post(user,title,post):
 	conn = sqlite3.connect("blog.db")
 	c = conn.cursor()
