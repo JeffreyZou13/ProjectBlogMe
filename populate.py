@@ -14,7 +14,7 @@ for item in csv.DictReader(open("users.csv")):
 
 q = "delete from posts"
 c.execute(q)
-BASE="INSERT INTO posts VALUES('%(id)s','%(user)s','%(title)s','%(post)s')"
+BASE="INSERT INTO posts VALUES('%(id)s','%(user)s','%(title)s','%(post)s','%(date)s','%(time)s')"
 for item in csv.DictReader(open("posts.csv")):
     q = BASE%item
     print q
@@ -22,7 +22,7 @@ for item in csv.DictReader(open("posts.csv")):
 
 q = "delete from comments"
 c.execute(q)
-BASE="INSERT INTO comments VALUES('%(id)s','%(user)s','%(comment)s')"
+BASE="INSERT INTO comments VALUES('%(id)s','%(user)s','%(comment)s','%(date)s','%(time)s')"
 for item in csv.DictReader(open("comments.csv")):
     q = BASE%item
     print q

@@ -2,12 +2,14 @@
 
 <h2>By: {{d['user']}}</h2>
 
+<h3>Date: {{d['date']}} Time: {{d['time']}}</h3>
+
 <p>{{d['post']}}</p>
 
 <h2>Comments</h2>
 
 {% for c in comment_list %}
-<h3>{{c['user']}}</h3>
+<h3>{{c['user']}} Date: {{c['date']}} Time: {{c['time']}}</h3>
 <p>{{c['comment']}}</p>
 {% endfor %}
 

@@ -1,5 +1,7 @@
 import csv
 import sqlite3
+import datetime
+import time
 
 def authenticate(uname, pword):
 	conn = sqlite3.connect("blog.db")
@@ -43,6 +45,8 @@ def post_info(post_id):
 		d['user'] = r[1]
 		d['title'] = r[2]
 		d['post'] = r[3]
+		d['date'] = r[4]
+		d['time'] = r[5]
 	return d
 
 
@@ -56,7 +60,7 @@ def comments(post_id):
 	result = c.execute(q, (str(post_id),))
 	comments = []
 	for r in result:
-		comments += [{'user':r[1],'comment':r[2]}]
+		comments += [{'user':r[1],'comment':r[2],'date':r[3],'time':r[4]}]
 	return comments
 
 #Helper for delete_post
@@ -110,7 +114,9 @@ def add_post(user,title,post):
 	result = c.execute(q) # number of posts
 	for r in result:
 		pid = r[0]+1
-	q = 'INSERT INTO posts VALUES("'+'","'.join([str(pid),user,title,post])+'")'
+	d = str(datetime.date.today())
+	t = str(time.strftime('%H:%M'))
+	q = 'INSERT INTO posts VALUES("'+'","'.join([str(pid),user,title,post,d,t])+'")'
 	print q
 	c.execute(q)
 	'''
@@ -124,7 +130,9 @@ def add_post(user,title,post):
 def add_comment(pid,user,comment):
 	conn = sqlite3.connect("blog.db")
 	c = conn.cursor()
-	q = 'INSERT INTO comments VALUES("'+'","'.join([pid,user,comment])+'")'
+	d = str(datetime.date.today())
+	t = str(time.strftime('%H:%M'))
+	q = 'INSERT INTO comments VALUES("'+'","'.join([pid,user,comment,d,t])+'")'
 	c.execute(q)
 	conn.commit()
 
