@@ -40,8 +40,10 @@ def register():
 		conf = request.form['confirm']
 		if utils.user_exists(uname):
 			return(render_template("register.html",message="Username already exists."))
+		elif len(uname) < 2:
+			return(render_template("register.html",message="Username must be at least 2 characters."))
 		elif len(pword) < 6:
-			return(render_template("register.html",message="Password should be at least 6 characters."))
+			return(render_template("register.html",message="Password must be at least 6 characters."))
 		elif pword != conf:
 			return(render_template("register.html",message="Password doesn't match confirmation."))
 		else:
