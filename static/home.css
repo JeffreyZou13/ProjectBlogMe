@@ -3,5 +3,6 @@ body {
 }
 
 .item img {
-	width: 100%;
+	margin: 0px auto 0px;
+	max-height: 500px;
 }

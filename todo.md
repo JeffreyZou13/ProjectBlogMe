@@ -4,22 +4,24 @@ _ideas for extra stuff we can do is in italics_
 
 ###UX
 - [ ] home page (home.html)
-	- [ ] blog title
-	- [ ] short description
+	- [X] blog title
 	- [X] link to login 
-- [ ] login page (login.html)
+	- [X] pic carousel
+- [ ] about page 
+	- [ ] short description
+- [X] login page (login.html)
 	- [X] space to enter username and password 
 	- [X] authenticate info from database of users 
 	- [X] error message 
-	- [ ] link back to home page
-	- [ ] _link to create user_
+	- [X] link back to home page
+	- [X] _link to create user_
 	- [ ] _link to forgot password sends to email on file_
-- [ ] _create user page_  
+- [X] _create user page_ (register.html) 
+- [ ] profiles page 
+	- [ ] list all user profiles
 - [ ] user profile page (profile.html) 
 	- [X] takes username as argument 
 	- [X] displays list of blog posts by user 
-	- [ ] link to logout
-	- [ ] link to create new post
 - [ ] blog post page (post.html)
 	- [X] takes post id # as argument 
 	- [X] displays post and post comments 
@@ -29,6 +31,7 @@ _ideas for extra stuff we can do is in italics_
 	- [X] space to enter post title and text  
 - [ ] fancy formatting - Bootstrap
 	- [X] nav bar 
+	- [ ] if logged in, change to log out link
 
 ###Backend
 - [X] csv database of users (users.csv -> users.db) 
