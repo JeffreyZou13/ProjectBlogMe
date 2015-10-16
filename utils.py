@@ -45,6 +45,7 @@ def post_info(post_id):
 		d['post'] = r[3]
 	return d
 
+
 def comments(post_id):
 	conn = sqlite3.connect("blog.db")
 	c = conn.cursor()
@@ -57,6 +58,29 @@ def comments(post_id):
 	for r in result:
 		comments += [{'user':r[1],'comment':r[2]}]
 	return comments
+
+#Helper for delete_post
+def check_name(post_id):
+        conn = sqlite3.connect("blog.db")
+        c = conn.cursor()
+        q = '''
+        SELECT name
+        FROM posts
+        WHERE id=?'''
+        result = c.execute(q, (post_id,))
+        return result[0]
+
+
+def delete_post(post_id):
+        conn = sqlite3.connect("blog.db")
+        c = conn.cursor()
+        q = '''
+        DELETE
+        FROM posts
+        WHERE id=?'''
+        result = c.execute(q, (post_id,))
+        
+        return result
 
 def user_exists(name):
 	conn = sqlite3.connect("blog.db")
@@ -103,3 +127,5 @@ def add_comment(pid,user,comment):
 	q = 'INSERT INTO comments VALUES("'+'","'.join([pid,user,comment])+'")'
 	c.execute(q)
 	conn.commit()
+
+#print comments(1)
