@@ -1,8 +1,25 @@
-body {
-	padding: 70px;
-}
 
-.item img {
-	margin: 0px auto 0px;
-	max-height: 500px;
+
+.carousel .item {
+    width: 100%; /*slider width*/
+    height: 500px
 }
+.carousel .item img {
+    width: 100%; /*img width*/
+    height: 800px;
+}
+/*add some makeup*/
+.carousel .carousel-control {
+    background: none;
+    border: none;
+    top: 50%;
+}
+/*
+/*full width container
+@media (max-width: 767px) {
+    .block {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+}
+*/
