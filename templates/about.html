@@ -81,8 +81,8 @@
 		
 		<h4>User Profiles</h4>
 		| 
-		{% for i in range(users|length) %}
-		<a href={{links[i]}}>{{users[i]}}</a> | 
+		{% for u in users %}
+		<a href="/profile/{{u}}">{{u}}</a> | 
 		{% endfor %}
       
     </div> <!-- /container -->

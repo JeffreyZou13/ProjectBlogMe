@@ -15,10 +15,9 @@ def home():
 
 @app.route("/about")
 def about():
-	user_links = utils.users()
-	users = user_links[0]
-	links = user_links[1]
-	return(render_template("about.html",users=users,links=links))
+	users = utils.users()
+	#print users
+	return(render_template("about.html",users=users))
 
 @app.route("/login", methods=["GET","POST"])
 @app.route("/login/<message>", methods=["GET","POST"])

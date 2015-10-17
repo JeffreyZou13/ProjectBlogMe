@@ -1,3 +1,14 @@
 body {
 	padding: 70px;
 }
+
+.post {
+	margin: 20px 0px 20px;
+	padding: 30px 15% 30px;
+	background-color: #EEE;
+	text-align: left;
+}
+
+.btn {
+	margin-bottom: 20px;
+}

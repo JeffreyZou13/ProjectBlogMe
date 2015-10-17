@@ -57,28 +57,36 @@
 
     <div class="container">
 
-		<h1>Title: {{d['title']}}</h1>
+		<h2>
+			<u>{{d['title']}}</u>
+			<small> by </small>
+			<a href="/profile/{{d['user']}}"><small>{{d['user']}}</small></a>
+		</h2>
+		
+		<h5>{{d['date']}} | {{d['time']}}</h5>
 
-		<h2>By: {{d['user']}}</h2>
-
-		<h3>Date: {{d['date']}} Time: {{d['time']}}</h3>
-
-		<p>{{d['post']}}</p>
-
-		<h2>Comments</h2>
-
-		{% for c in comment_list %}
-		<h3>{{c['user']}} Date: {{c['date']}} Time: {{c['time']}}</h3>
-		<p>{{c['comment']}}</p>
-		{% endfor %}
-
-		Add new comment:
-		<br>
-		<form method="POST">
-			<textarea name="comment" rows="5" cols="80"></textarea>
-			<br>
-			<input type="submit" name="button" value="Submit">
+		<center><p class="post">{{d['post']}}</p></center>
+		
+		<form class="form-horizontal" method="POST">
+			<div class="form-group">
+				<label for="inputComm" class="col-sm-2 control-label">Add New Comment:</label>
+			    <div class="col-sm-10">
+			      <textarea class="form-control" name="comment" rows="3" id="inputPost"></textarea>
+			    </div>
+		  	</div>
+		  <center><input class="btn btn-primary" type="submit" name="button" value="Submit"></center>
 		</form>
+		
+		<h4>Comments</h4>
+		<table class="table table-hover table-condensed">
+		{% for c in comment_list %}
+		<tr>
+			<td><h5><a href="/profile/{{c['user']}}">{{c['user']}}</a>
+				<br>{{c['date']}}
+				 | {{c['time']}}</h5></td>
+			<td style="padding-top:10px"><p>{{c['comment']}}</p></td>
+		</tr>
+		{% endfor %}
       
     </div> <!-- /container -->
 

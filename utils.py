@@ -30,10 +30,7 @@ def users():
 	for r in result:
 		users += [r[0]]
 	users = sorted(users)
-	links = []
-	for u in users:
-		links += ["/profile/"+u]
-	return [users,links]
+	return users
 
 def posts(uname):
 	conn = sqlite3.connect("blog.db")
@@ -45,8 +42,8 @@ def posts(uname):
 	result = c.execute(q, (uname,))
 	posts = []
 	for r in result:
-		h = "http://localhost:5000/post/"+str(r[0])
-		posts += [{'id':h,'title':r[2]}]
+		h = "/post/"+str(r[0])
+		posts += [{'id':h,'title':r[2],'date':r[4]}]
 	return posts
 
 def post_info(post_id):
