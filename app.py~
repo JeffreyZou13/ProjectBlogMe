@@ -15,10 +15,10 @@ def home():
 
 @app.route("/login", methods=["GET","POST"])
 @app.route("/login/<message>", methods=["GET","POST"])
-def login(message='',logout=False):
+def login(message=''):
     if request.method== "GET":
 	    if 'user' in session and session['user'] != '':
-		return(render_template("login.html",message='Already logged in.',logout=True))
+		return(render_template("login.html",message="Already logged in. <a href="\logout">Logout?</a>"))
 	    else:
         	return(render_template("login.html",message=message))
     else:

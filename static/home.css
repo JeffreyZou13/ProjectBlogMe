@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 body {
 	padding-top: 50px;
 }
@@ -6,8 +5,7 @@ body {
 .item img {
 	margin: 0px auto 0px;
 	width: 100%;
-=======
-
+}
 
 .carousel .item {
     width: 100%; /*slider width*/
@@ -30,6 +28,5 @@ body {
         margin-left: -20px;
         margin-right: -20px;
     }
->>>>>>> 92da078a0d300462bfe7f2d40a055944aaa23317
 }
 */
