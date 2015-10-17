@@ -28,8 +28,8 @@ def users():
 	result = c.execute(q)
 	users = []
 	for r in result:
-		users += [r[0]]
-	users = sorted(users)
+		users += [str(r[0])]
+	users = sorted(users, key=str.lower)
 	return users
 
 def posts(uname):
