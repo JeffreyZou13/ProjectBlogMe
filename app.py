@@ -105,8 +105,8 @@ def newpost():
 		title = request.form['title']
 		post = request.form['post']
 		# add post to database
-		utils.add_post(session['user'],title,post)
-		return redirect(url_for("post",post_id=1)) # redirect to new post
+		num = utils.add_post(session['user'],title,post)
+		return redirect(url_for("post",post_id=num)) # redirect to new post
 
 @app.route("/posts", methods=["GET","POST"])
 def delete(post_id="None"):

@@ -140,6 +140,7 @@ def add_post(user,title,post):
 	c.execute(".output stdout")
 	'''
 	conn.commit()
+	return pid
 
 def add_comment(pid,user,comment):
 	conn = sqlite3.connect("blog.db")
