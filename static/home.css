@@ -1,8 +1,8 @@
 body {
-	padding: 70px;
+	padding-top: 50px;
 }
 
 .item img {
 	margin: 0px auto 0px;
-	max-height: 500px;
+	width: 100%;
 }
