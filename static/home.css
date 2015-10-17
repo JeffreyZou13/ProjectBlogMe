@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
 	padding-top: 50px;
 }
@@ -5,4 +6,30 @@ body {
 .item img {
 	margin: 0px auto 0px;
 	width: 100%;
+=======
+
+
+.carousel .item {
+    width: 100%; /*slider width*/
+    height:700px;
 }
+.carousel .item img {
+    width: 100%; /*img width*/
+    height: 100%;
+}
+/*add some makeup*/
+.carousel .carousel-control {
+    background: none;
+    border: none;
+    top: 50%;
+}
+/*
+/*full width container
+@media (max-width: 767px) {
+    .block {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+>>>>>>> 92da078a0d300462bfe7f2d40a055944aaa23317
+}
+*/
