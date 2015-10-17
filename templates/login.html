@@ -18,6 +18,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
     <!-- Custom styles for this template -->
     <link href="../static/signin.css" rel="stylesheet" type=text/css>
 
@@ -35,7 +36,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Stuy Bytes</a>
+          <a class="navbar-brand" href="/home">Stuy Bytes</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -44,25 +45,25 @@
             <li><a href="#contact">Profiles</a></li>
 	    <li><a href="/newpost">New Post</a></li>
 	  </ul>
-	    <!--Possible Dropdown Menu -->
+	  <!--Possible Dropdown Menu -->
            <!--  <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
-          </ul>
+		 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+		 <ul class="dropdown-menu">
+                   <li><a href="#">Action</a></li>
+                   <li><a href="#">Another action</a></li>
+                   <li><a href="#">Something else here</a></li>
+                   <li role="separator" class="divider"></li>
+                   <li class="dropdown-header">Nav header</li>
+                   <li><a href="#">Separated link</a></li>
+                   <li><a href="#">One more separated link</a></li>
+		 </ul>
+           </li>
+</ul>
 -->
 
-          <ul class="nav navbar-nav navbar-right">
-           <li> <a href="/login">Log In</a></li>
-          </ul>
+           <ul class="nav navbar-nav navbar-right">
+             <li> <a href="/login">Log In</a></li>
+           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -73,30 +74,33 @@
 
       <form class="form-signin" method="POST">
         <h2 class="form-signin-heading">Log In</h2>
-		<p style="color:red">{{ message }}</p>
+	<p style="color:red">{{ message }}</p>
         <label for="username" class="sr-only">Username</label>
         <input type="text" name="username" class="form-control" placeholder="Username" required>
         <label for="password" class="sr-only">Password</label>
         <input type="password" name="password" class="form-control" placeholder="Password" required>
 
-<!--remember password
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
--->
+	<!--remember password
+            <div class="checkbox">
+              <label>
+		<input type="checkbox" value="remember-me"> Remember me
+              </label>
+            </div>
+	    -->
 	<br>
-        <input type="submit" name="button" value="Log In">
+       <center>
+	 <input type="submit" name="button" value="Log In">
+       </center>
       </form>
-
-      <br>
-      <a href="/register">Create New Account</a>
-      |
-      <a href="/reset">Forgot Password? </a>
+      <center>
+	<a href="/register">Create New Account</a>
+	|
+	<a href="/reset">Forgot Password? </a>
     </div> <!-- /container -->
+    </center>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
   </body>
 </html>
