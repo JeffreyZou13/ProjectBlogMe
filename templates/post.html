@@ -1,22 +1,92 @@
-<h1>Title: {{d['title']}}</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
-<h2>By: {{d['user']}}</h2>
+    <title>Stuy Bytes</title>
 
-<h3>Date: {{d['date']}} Time: {{d['time']}}</h3>
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    <!-- Custom styles for this template -->
+    <link href="../static/text.css" rel="stylesheet" type=text/css>
 
-<p>{{d['post']}}</p>
+  </head>
 
-<h2>Comments</h2>
+  <body>
 
-{% for c in comment_list %}
-<h3>{{c['user']}} Date: {{c['date']}} Time: {{c['time']}}</h3>
-<p>{{c['comment']}}</p>
-{% endfor %}
+    <!--navbar-->
 
-Add new comment:
-<br>
-<form method="POST">
-	<textarea name="comment" rows="5" cols="80"></textarea>
-	<br>
-	<input type="submit" name="button" value="Submit">
-</form>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/home">Stuy Bytes</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/myprofile">My Profile</a></li>
+	    	<li><a href="/newpost">New Post</a></li>
+	  	  </ul>
+
+           <ul class="nav navbar-nav navbar-right">
+             <li> <a href="/login">Log In</a></li>
+           </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <!-- the actual log in field-->
+
+    <div class="container">
+
+		<h1>Title: {{d['title']}}</h1>
+
+		<h2>By: {{d['user']}}</h2>
+
+		<h3>Date: {{d['date']}} Time: {{d['time']}}</h3>
+
+		<p>{{d['post']}}</p>
+
+		<h2>Comments</h2>
+
+		{% for c in comment_list %}
+		<h3>{{c['user']}} Date: {{c['date']}} Time: {{c['time']}}</h3>
+		<p>{{c['comment']}}</p>
+		{% endfor %}
+
+		Add new comment:
+		<br>
+		<form method="POST">
+			<textarea name="comment" rows="5" cols="80"></textarea>
+			<br>
+			<input type="submit" name="button" value="Submit">
+		</form>
+      
+    </div> <!-- /container -->
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+  </body>
+</html>
+
+
+
