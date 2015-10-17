@@ -18,6 +18,23 @@ def authenticate(uname, pword):
 	else:
 		return False
 
+def users():
+	conn = sqlite3.connect("blog.db")
+	c = conn.cursor()
+	q = '''
+	SELECT username
+	FROM users
+	'''
+	result = c.execute(q)
+	users = []
+	for r in result:
+		users += [r[0]]
+	users = sorted(users)
+	links = []
+	for u in users:
+		links += ["/profile/"+u]
+	return [users,links]
+
 def posts(uname):
 	conn = sqlite3.connect("blog.db")
 	c = conn.cursor()

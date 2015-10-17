@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Stuy Bytes</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    <!-- Custom styles for this template -->
+    <link href="../static/text.css" rel="stylesheet" type=text/css>
+
+  </head>
+
+  <body>
+
+    <!--navbar-->
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/home">Stuy Bytes</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/home">Home</a></li>
+            <li class="active"><a href="/about">About</a></li>
+            <li><a href="/myprofile">My Profile</a></li>
+	    	<li><a href="/newpost">New Post</a></li>
+	  	  </ul>
+
+           <ul class="nav navbar-nav navbar-right">
+             <li> <a href="/login">Log In</a></li>
+           </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <!-- the actual log in field-->
+
+    <div class="container">
+
+		<h2>About</h2>
+		
+		<p class="lead">Stuy Bytes is a food blog where users can create and comment on posts.</p>
+		
+		<h4>The Stuy Bytes Team</h4>
+		<table class="table table-hover">
+			<tr><th></th><th>Name</th><th>GitHub</th></tr>
+			<tr>
+				<td class="text-muted">Leader</td>
+				<td>Ariel Levy</td>
+				<td><a href="https://github.com/askyel">askyel</a></td>
+			</tr>
+			<tr>
+				<td class="text-muted">UX</td>
+				<td>Bi Ling Wu</td>
+				<td><a href="https://github.com/bilingwu">bilingwu</a></td>
+			</tr>
+			<tr>
+				<td class="text-muted">Backend</td>
+				<td>Jeffrey Zou</td>
+				<td><a href="https://github.com/JeffreyZou13">JeffreyZou13</a></td>
+			</tr>
+		</table>
+		
+		<h4>User Profiles</h4>
+		| 
+		{% for i in range(users|length) %}
+		<a href={{links[i]}}>{{users[i]}}</a> | 
+		{% endfor %}
+      
+    </div> <!-- /container -->
+    </center>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+  </body>
+</html>
