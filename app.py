@@ -51,6 +51,7 @@ def register():
 		uname = request.form['username']
 		pword = request.form['password']
 		conf = request.form['confirm']
+		email = request.form['email']
 		if utils.user_exists(uname):
 			return(render_template("register.html",message="Username already exists."))
 		elif len(uname) < 2:
@@ -60,7 +61,7 @@ def register():
 		elif pword != conf:
 			return(render_template("register.html",message="Password doesn't match confirmation."))
 		else:
-			utils.add_user(uname,pword)
+			utils.add_user(uname,pword,email)
 			return redirect(url_for('login'))
 	#form input for post
 

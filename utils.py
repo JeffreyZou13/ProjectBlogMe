@@ -115,10 +115,10 @@ def user_exists(name):
 	else:
 		return False
 
-def add_user(name,password):
+def add_user(name,password,email):
 	conn = sqlite3.connect("blog.db")
 	c = conn.cursor()
-	q = 'INSERT INTO users VALUES("'+'","'.join([name,password])+'")'
+	q = 'INSERT INTO users VALUES("'+'","'.join([name,password,email])+'")'
 	print q
 	c.execute(q)
 	conn.commit()
