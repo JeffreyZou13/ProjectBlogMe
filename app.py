@@ -150,7 +150,7 @@ def send_reset():
         s.close()
         #update password
         utils.temp_password(uname, new_pass)
-        return render_template("fix.html")
+        return redirect(url_for("fix"))
 
 @app.route("/fix", methods=['GET','POST'])
 @app.route("/fix/<msg>", methods=['GET','POST'])
@@ -161,7 +161,6 @@ def fix(msg=''):
         uname = request.form['username']
         password = request.form['password']
         if (uname in utils.users()):
-            #print utils.get_password(uname)
             if utils.authenticate(uname, password):
                 new_password = request.form['newpass']
                 confirm = request.form['confirm']
@@ -171,7 +170,9 @@ def fix(msg=''):
                     return render_template("fix.html", msg="The password must be at least 6 characters")
                 else:
                     utils.correct_password(password, new_password)
-                    return render_template(url_for('myprofile'))
+                    if 'user' in session:
+                        session['user'] = ''
+                    return redirect(url_for("login"))
             else:
                 return render_template("fix.html", msg="That's the wrong username!")
 

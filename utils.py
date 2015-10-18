@@ -132,7 +132,8 @@ def add_post(user,title,post):
 		pid = r[0]+1
 	d = str(datetime.date.today())
 	t = str(time.strftime('%H:%M'))
-	q = 'INSERT INTO posts VALUES("'+'","'.join([str(pid),user,title,post,d,t])+'")'
+	q = 'INSERT INTO posts VALUES("'+'","'.join([str(pid),user,title,post,d
+,t])+'")'
 	print q
 	c.execute(q)
 	'''
@@ -153,30 +154,30 @@ def add_comment(pid,user,comment):
 	c.execute(q)
 	conn.commit()
 
-#Use in forgot password                                                                               
+#Use in forgot password                                                        
 def reset_password(username, password):
         conn = sqlite3.connect('blog.db')
         c = conn.cursor()
         q = '''
         SELECT email        
-        FROM users                                                                                 
+        FROM users                                                             
         WHERE username =?'''
         result = c.execute(q, (username,))
         conn.commit()
         email = result.fetchone()[0]
-        #sets hash_password to a hash                                                                 
+        #sets hash_password to a hash                                          
         salt = os.urandom(8).encode('hex')
         hashed_password = hashlib.sha256(password.encode('utf-8') + salt.encode('utf-8')).hexdigest()
-        #Dictionary with pass and email                                                               
+        #Dictionary with pass and email                                        
         d = {'email':email, 'pw': hashed_password};
         return d
 
 def get_password(uname):
         conn = sqlite3.connect('blog.db')
         c = conn.cursor()
-        q = """                                                                                       
-        SELECT password                                                                               
-        FROM users                                                                                    
+        q = """                                                                
+        SELECT password                                                       
+        FROM users                                                             
         WHERE username=?"""
         result = c.execute(q, (uname,))
         conn.commit()
@@ -190,7 +191,7 @@ def temp_password(uname, pw):
         SET password=?
         WHERE username=?'''
         c.execute(q, (pw,uname,))
-        print c.execute("SELECT password FROM users").fetchall()
+        conn.commit()
 
 def correct_password(tempPW, newPW):
         conn = sqlite3.connect('blog.db')
@@ -200,8 +201,9 @@ def correct_password(tempPW, newPW):
         SET password=?
         WHERE password=?'''
         c.execute(q, (newPW, tempPW,))
+        conn.commit()
 
-#name = "jzou"                                                                                        
-#password = "jz123"                                                                                   
+#name = "jzou"                                                                 
+#password = "jz123"                                                           
 #print reset_password(name, password)
 #print comments(1)
