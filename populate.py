@@ -6,7 +6,7 @@ c = conn.cursor()
 
 q = "delete from users"
 c.execute(q)
-BASE="INSERT INTO users VALUES('%(username)s','%(password)s')"
+BASE="INSERT INTO users VALUES('%(username)s','%(password)s','%(email)s')"
 for item in csv.DictReader(open("users.csv")):
     q = BASE%item
     print q

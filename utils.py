@@ -2,6 +2,8 @@ import csv
 import sqlite3
 import datetime
 import time
+import os
+import hashlib
 
 def authenticate(uname, pword):
 	conn = sqlite3.connect("blog.db")
@@ -151,4 +153,55 @@ def add_comment(pid,user,comment):
 	c.execute(q)
 	conn.commit()
 
+#Use in forgot password                                                                               
+def reset_password(username, password):
+        conn = sqlite3.connect('blog.db')
+        c = conn.cursor()
+        q = '''
+        SELECT email        
+        FROM users                                                                                 
+        WHERE username =?'''
+        result = c.execute(q, (username,))
+        conn.commit()
+        email = result.fetchone()[0]
+        #sets hash_password to a hash                                                                 
+        salt = os.urandom(8).encode('hex')
+        hashed_password = hashlib.sha256(password.encode('utf-8') + salt.encode('utf-8')).hexdigest()
+        #Dictionary with pass and email                                                               
+        d = {'email':email, 'pw': hashed_password};
+        return d
+
+def get_password(uname):
+        conn = sqlite3.connect('blog.db')
+        c = conn.cursor()
+        q = """                                                                                       
+        SELECT password                                                                               
+        FROM users                                                                                    
+        WHERE username=?"""
+        result = c.execute(q, (uname,))
+        conn.commit()
+        return result.fetchone()[0]
+
+def temp_password(uname, pw):
+        conn = sqlite3.connect('blog.db')
+        c = conn.cursor()
+        q = '''
+        UPDATE users
+        SET password=?
+        WHERE username=?'''
+        c.execute(q, (pw,uname,))
+        print c.execute("SELECT password FROM users").fetchall()
+
+def correct_password(tempPW, newPW):
+        conn = sqlite3.connect('blog.db')
+        c = conn.cursor()
+        q = '''
+        UPDATE users
+        SET password=?
+        WHERE password=?'''
+        c.execute(q, (newPW, tempPW,))
+
+#name = "jzou"                                                                                        
+#password = "jz123"                                                                                   
+#print reset_password(name, password)
 #print comments(1)

@@ -2,6 +2,10 @@ from flask import Flask, render_template,request, session,redirect, url_for
 import sqlite3
 import csv
 import utils
+import smtplib
+from email.mime.multipart import MIMEMultipart 
+from email.mime.text import MIMEText
+import os
 
 app= Flask(__name__)
 
@@ -117,6 +121,59 @@ def delete(post_id="None"):
     if check_name(post_id) == uname:
         utils.delete_post(post_id)
         return render_template("/profile/<username>")
+
+@app.route("/reset", methods=['GET', 'POST'])
+@app.route("/reset/<message>", methods=['GET','POST'])
+def send_reset():
+    if request.method == "GET":
+        return render_template("reset.html")
+    else:
+        uname = request.form['username']
+        if not utils.user_exists(uname):
+            return render_template("reset.html",message="That user does not exist.")
+        
+        pword = utils.get_password(uname)
+        #sends the hash to the email                                           
+        d = utils.reset_password(uname, pword)
+        email = d['email']
+        new_pass = d['pw']
+        myemail = 'stuybytes@gmail.com'
+        text = "Your username is " + uname + ". Type this for your password " + new_pass
+        #send email
+        s = smtplib.SMTP("smtp.gmail.com", 587)
+        s.ehlo()
+        s.starttls()
+        s.ehlo()
+        s.login(myemail,"thisisapass")
+        msg = 'To: '+email+'\n' +'From: '+myemail+'\n'+'Subject: reset password \n' + '\n' + text
+        s.sendmail(myemail,email,msg)
+        s.close()
+        #update password
+        utils.temp_password(uname, new_pass)
+        return render_template("fix.html")
+
+@app.route("/fix", methods=['GET','POST'])
+@app.route("/fix/<msg>", methods=['GET','POST'])
+def fix(msg=''):
+    if request.method == 'GET':
+        return render_template("fix.html",msg='')
+    else:
+        uname = request.form['username']
+        password = request.form['password']
+        if (uname in utils.users()):
+            #print utils.get_password(uname)
+            if utils.authenticate(uname, password):
+                new_password = request.form['newpass']
+                confirm = request.form['confirm']
+                if new_password != confirm:
+                    return render_template("fix.html", msg="The passwords do not match. Try again")
+                elif len(new_password) < 6:
+                    return render_template("fix.html", msg="The password must be at least 6 characters")
+                else:
+                    utils.correct_password(password, new_password)
+                    return render_template(url_for('myprofile'))
+            else:
+                return render_template("fix.html", msg="That's the wrong username!")
 
 if __name__ == "__main__":
     app.debug=True
