@@ -88,16 +88,22 @@ def myprofile():
 @app.route("/post", methods=["GET","POST"])
 @app.route("/post/<post_id>", methods=["GET","POST"])
 def post(post_id="1"):
-	if request.method == "POST":
-		if 'user' in session and session['user'] != '':
-			comment = request.form['comment']
-			# add comment to database
-			utils.add_comment(post_id,session['user'],comment)
-		else:
-			return redirect(url_for("login",message="Login before you post."))
-	d = utils.post_info(post_id)
-	comment_list = utils.comments(post_id)
-	return(render_template("post.html",d=d,comment_list=comment_list))
+    if request.method == "POST":
+        if 'user' in session and session['user'] != '':
+            if 'remove' in request.form:
+                delete(post_id)
+            # add comment to database                                                                                                           
+            elif 'submit' in request.form:
+                comment = request.form['comment']
+                utils.add_comment(post_id,session['user'],comment)
+                d = utils.post_info(post_id)
+                comment_list = utils.comments(post_id)
+                return(render_template("post.html",d=d,comment_list=comment_list))
+        else:
+            return redirect(url_for("login",message="Login before you post."))
+    d = utils.post_info(post_id)
+    comment_list = utils.comments(post_id)
+    return(render_template("post.html",d=d,comment_list=comment_list))
         
 @app.route("/newpost", methods=["GET","POST"])
 def newpost():
@@ -113,15 +119,18 @@ def newpost():
 		num = utils.add_post(session['user'],title,post)
 		return redirect(url_for("post",post_id=num)) # redirect to new post
 
-@app.route("/posts", methods=["GET","POST"])
-def delete(post_id="None"):
-    #username and password of the current user
-    uname = request.form['username']
-    pword = request.form['password']
-    #compares the person who posts to the person trying to delete
-    if check_name(post_id) == uname:
+@app.route("/post/<post_id>")
+def delete(post_id=1):
+    #username and password of the current user                                                                                                 
+    uname = session['user']
+    #compares the person who posts to the person trying to delete                        
+    print utils.check_name(post_id) == uname
+    if utils.check_name(post_id) == uname:
         utils.delete_post(post_id)
-        return render_template("/profile/<username>")
+        return redirect(url_for("profile",uname))
+    else:
+        return redirect(url_for("post"),post_id)
+
 
 @app.route("/reset", methods=['GET', 'POST'])
 @app.route("/reset/<message>", methods=['GET','POST'])

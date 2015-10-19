@@ -84,12 +84,11 @@ def check_name(post_id):
         conn = sqlite3.connect("blog.db")
         c = conn.cursor()
         q = '''
-        SELECT name
+        SELECT username
         FROM posts
         WHERE id=?'''
         result = c.execute(q, (post_id,))
-        return result[0]
-
+        return result.fetchone()[0]
 
 def delete_post(post_id):
         conn = sqlite3.connect("blog.db")
@@ -99,7 +98,7 @@ def delete_post(post_id):
         FROM posts
         WHERE id=?'''
         result = c.execute(q, (post_id,))
-        
+        conn.commit()
         return result
 
 def user_exists(name):
