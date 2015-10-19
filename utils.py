@@ -89,6 +89,7 @@ def check_name(post_id):
         WHERE id=?'''
         result = c.execute(q, (post_id,))
         return result.fetchone()[0]
+        conn.commit()
 
 def delete_post(post_id):
         conn = sqlite3.connect("blog.db")
